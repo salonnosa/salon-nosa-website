@@ -1,0 +1,24 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>لوحة الإدارة</title><link rel="stylesheet" href="style.css"></head><body><main class="admin"><div id="live-status" class="live-status">🟢 التحديث المباشر مفعل</div>
+<div id="login" class="login"><b class="logo">✦</b><h1>لوحة الإدارة</h1><p>صفحة خاصة بإدارة معرض Salon Nosa و VELORA.</p><input id="username" placeholder="اسم المستخدم"><input id="password" type="password" placeholder="كلمة المرور"><button class="btn full" onclick="loginAdmin()">دخول</button><em id="loginError"></em></div>
+<div id="app" hidden><div class="adminhead"><div><h1>إدارة المعرض</h1><p>أضف الخدمات والمنتجات والصور وScreenshots لآراء العملاء.</p></div><div><a class="btn alt" href="index.html">عرض الموقع</a><button class="btn danger" onclick="logoutAdmin()">خروج</button></div></div>
+<section class="panel"><h2>إضافة منتج أو خدمة</h2><div class="grid"><label>النوع<select id="type"><option value="product">منتج VELORA</option><option value="service">خدمة Salon Nosa</option></select></label><label>الاسم<input id="name" placeholder="مثال: Shea Dox"></label><label class="wide">الوصف<textarea id="desc" placeholder="وصف مختصر"></textarea></label><label class="wide">الصورة الرئيسية<input id="cover" type="file" accept="image/*"></label></div><button class="btn" onclick="addItem()">إضافة</button></section>
+<section class="panel"><h2>إضافة صور متعددة</h2><label class="wide">اختر المنتج أو الخدمة<select id="target"></select></label><div class="grid"><label>نوع الصور<select id="mediaKind"><option value="work">📸 صور الشغل / المنتج</option><option value="review">💬 آراء العملاء</option></select></label><label>اختر الصور<input id="mediaFiles" type="file" accept="image/*" multiple></label></div><div id="selectedInfo" class="selected">لم يتم اختيار صور بعد.</div><button id="addMediaBtn" class="btn" onclick="addMedia()">إضافة الصور المحددة</button><p class="note">اختار صور كثيرة مرة واحدة. يتم ضغطها تلقائيًا قبل الحفظ.</p></section>
+<section class="panel before-after-admin">
+<h2>✨ صور قبل وبعد الخدمة</h2>
+<p class="note">خاص بالخدمات فقط. اختار خدمة ثم ارفع صور "قبل" وصور "بعد" دفعة واحدة. تقدر تضيف أكثر من مجموعة على نفس الخدمة.</p>
+<label class="wide">اختر الخدمة
+<select id="baTarget"></select>
+</label>
+<div class="grid">
+<label>صور قبل الخدمة
+<input id="beforeFiles" type="file" accept="image/*" multiple>
+</label>
+<label>صور بعد الخدمة
+<input id="afterFiles" type="file" accept="image/*" multiple>
+</label>
+</div>
+<div id="baInfo" class="selected">لم يتم اختيار صور قبل/بعد بعد.</div>
+<button id="addBaBtn" class="btn" onclick="addBeforeAfter()">إضافة صور قبل وبعد</button>
+<div id="baCurrent"></div>
+</section>
+<section class="panel"><h2>المحتوى الحالي</h2><div id="list"></div></section></div></main><script src="firebase-config.js"></script><script src="script.js"></script></body></html>
